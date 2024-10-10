@@ -14,11 +14,11 @@ Después, verificamos que nginx se haya instalado y que esté funcionando bien:
 systemctl status nginx
 ```
 
-![Foto 1](../docs/assets/images/Practica%202.1/s1.png)
+![Foto 1](../docs/assets/images/practica%202.1/s1.png)
 
-![Foto 2](../docs/assets/images/Practica%202.1/s2.png)
+![Foto 2](../docs/assets/images/practica%202.1/s2.png)
 
-![Foto 3](../docs/assets/images/Practica%202.1/s3.png)
+![Foto 3](../docs/assets/images/practica%202.1/s3.png)
 
 ## Creación de las carpeta del sitio web
 Al igual que en Apache, todos los archivos que serán parte de un sitio web servido por nginx se organizan en carpetas. Normalmente, estas carpetas están dentro de `/var/www`.
@@ -29,7 +29,7 @@ Vamos a crear la carpeta donde estará nuestro sitio web o dominio:
 sudo mkdir -p /var/www/nombre_web/html
 ```
 
-![Foto 4](../docs/assets/images/Practica%202.1/s4.png)
+![Foto 4](../docs/assets/images/practica%202.1/s4.png)
 
 El "nombre_web" puede ser lo que quieras, sin espacios.
 
@@ -37,19 +37,19 @@ Luego, dentro de esa carpeta `html`, clona este repositorio:
 
 [https://github.com/cloudacademy/static-website-example](https://github.com/cloudacademy/static-website-example)
 
-![Foto 5](../docs/assets/images/Practica%202.1/s5.png)
+![Foto 5](../docs/assets/images/practica%202.1/s5.png)
 
 También vamos a hacer que el propietario de esa carpeta y todo lo que esté dentro sea el usuario `www-data`, que suele ser el usuario del servicio web:
 
 `sudo chown -R www-data:www-data /var/www/nombre_web/html` 
 
-![Foto 6](../docs/assets/images/Practica%202.1/s6.png)
+![Foto 6](../docs/assets/images/practica%202.1/s6.png)
 
 Le daremos los permisos adecuados para que no tengamos problemas de acceso no autorizado al entrar en el sitio web:
 
 `sudo chmod -R 755 /var/www/nombre_web` 
 
-![Foto 7](../docs/assets/images/Practica%202.1/s7.png)
+![Foto 7](../docs/assets/images/practica%202.1/s7.png)
 
 Para comprobar que el servidor está funcionando bien y sirviendo páginas correctamente, puedes acceder desde tu cliente a:
 
@@ -57,7 +57,7 @@ Para comprobar que el servidor está funcionando bien y sirviendo páginas corre
 
 Debería aparecer algo así:
 
-![Foto 8](../docs/assets/images/Practica%202.1/s8.png)
+![Foto 8](../docs/assets/images/practica%202.1/s8.png)
 
 Lo que significará que está correcto hasta ahora.
 
@@ -84,7 +84,7 @@ server {
 }
 ```
 
-![Foto 9](../docs/assets/images/Practica%202.1/s9.png)
+![Foto 9](../docs/assets/images/practica%202.1/s9.png)
 
 En la directiva `root`, tienes que poner la ruta completa donde esté el archivo `index.html` de tu página web, que se encuentra entre los archivos que ya habéis descomprimido.
 
@@ -94,7 +94,7 @@ Ahora vamos a crear un enlace simbólico entre este archivo y el de los sitios h
 sudo ln -s /etc/nginx/sites-available/nombre_web /etc/nginx/sites-enabled/
 ```
 
-![Foto 10](../docs/assets/images/Practica%202.1/s10.png)
+![Foto 10](../docs/assets/images/practica%202.1/s10.png)
 
 Y reiniciamos el servidor para aplicar la configuración:
 
@@ -102,7 +102,7 @@ Y reiniciamos el servidor para aplicar la configuración:
 sudo systemctl restart nginx
 ```
 
-![Foto 11](../docs/assets/images/Practica%202.1/s11.png)
+![Foto 11](../docs/assets/images/practica%202.1/s11.png)
 
 ## Comprobaciones
 
@@ -120,9 +120,9 @@ Ahí, debemos añadir la siguiente línea:
 
 Reemplaza "192.168.X.X" por la IP de tu máquina virtual.
 
-![Foto 12](../docs/assets/images/Practica%202.1/s12.png)
+![Foto 12](../docs/assets/images/practica%202.1/s12.png)
 
-![Foto 13](../docs/assets/images/Practica%202.1/s13.png)
+![Foto 13](../docs/assets/images/practica%202.1/s13.png)
 
 ### Comprobar registros del servidor
 
@@ -130,11 +130,11 @@ Asegúrate de que las peticiones se están registrando bien en los archivos de l
 
 - `/var/log/nginx/access.log`: aquí se registra cada solicitud que llega a tu servidor web, a menos que tengas Nginx configurado para otra cosa.
 
-![Foto 14](../docs/assets/images/Practica%202.1/s14.png)
+![Foto 14](../docs/assets/images/practica%202.1/s14.png)
 
 - `/var/log/nginx/error.log`: cualquier error que ocurra con Nginx se va a anotar en este archivo.
 
-![Foto 15](../docs/assets/images/Practica%202.1/s15.png)
+![Foto 15](../docs/assets/images/practica%202.1/s15.png)
 
 ## Configurar servidor SFTP en Debian
 
@@ -145,7 +145,7 @@ sudo apt-get update
 sudo apt-get install vsftpd
 ```
 
-![Foto 16](../docs/assets/images/Practica%202.1/s16.png)
+![Foto 16](../docs/assets/images/practica%202.1/s16.png)
 
 Ahora, vamos a crear una carpeta en tu home de Debian:
 
@@ -153,7 +153,7 @@ Ahora, vamos a crear una carpeta en tu home de Debian:
 mkdir /home/nombre_usuario/ftp
 ```
 
-![Foto 17](../docs/assets/images/Practica%202.1/s17.png)
+![Foto 17](../docs/assets/images/practica%202.1/s17.png)
 
 En la configuración de vsftpd, indicaremos que esta carpeta será el directorio al que se cambia vsftpd una vez que el usuario se conecta.
 
@@ -163,7 +163,7 @@ Luego, vamos a crear los certificados de seguridad necesarios para añadir una c
 sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/ssl/private/vsftpd.pem -out /etc/ssl/private/vsftpd.pem
 ```
 
-![Foto 18](../docs/assets/images/Practica%202.1/s18.png)
+![Foto 18](../docs/assets/images/practica%202.1/s18.png)
 
 Una vez hecho esto, pasamos a configurar vsftpd como tal. Usa el editor de texto que prefieras para editar el archivo de configuración del servicio, por ejemplo con nano:
 
@@ -179,7 +179,7 @@ rsa_private_key_file=/etc/ssl/private/ssl-cert-snakeoil.key
 ssl_enable=NO
 ```
 
-![Foto 19](../docs/assets/images/Practica%202.1/s19.png)
+![Foto 19](../docs/assets/images/practica%202.1/s19.png)
 
 Después, añade estas líneas en su lugar:
 
@@ -199,7 +199,7 @@ ssl_ciphers=HIGH
 local_root=/home/nombre_usuario/ftp
 ```
 
-![Foto 20](../docs/assets/images/Practica%202.1/s20.png)
+![Foto 20](../docs/assets/images/practica%202.1/s20.png)
 
 Finalmente, guarda los cambios y reinicia el servicio para que aplique la nueva configuración:
 
@@ -207,7 +207,7 @@ Finalmente, guarda los cambios y reinicia el servicio para que aplique la nueva 
 sudo systemctl restart --now vsftpd
 ```
 
-![Foto 21](../docs/assets/images/Practica%202.1/s21.png)
+![Foto 21](../docs/assets/images/practica%202.1/s21.png)
 
 Una vez terminada esta configuración, ya podrás acceder a tu servidor usando un cliente FTP como Filezilla de dos maneras:
 
@@ -219,7 +219,7 @@ Una vez terminada esta configuración, ya podrás acceder a tu servidor usando u
 
 Después de descargar un cliente FTP en tu ordenador, introduce los datos necesarios para conectarte a tu servidor FTP en Debian:
 
-![Foto 22](../docs/assets/images/Practica%202.1/s22.png)
+![Foto 22](../docs/assets/images/practica%202.1/s22.png)
 
 -   **IP de Debian** (recuadro rojo)
 
@@ -235,7 +235,7 @@ Al conectarte con claves FTP con _Conexión rápida_, te saldrá el mismo aviso 
 
 Te conectarás directamente a la carpeta que especificamos en el archivo de configuración: `/home/lara/ftp`.
 
-![Foto 23](../docs/assets/images/Practica%202.1/s23.png)
+![Foto 23](../docs/assets/images/practica%202.1/s23.png)
 
 Una vez conectado, en el lado izquierdo de la pantalla (tu ordenador) buscas una imagen cualquiera (por ejemplo). En el lado derecho (el servidor), busca la carpeta donde quieres subir el archivo. Con un doble clic o haciendo clic derecho > _subir_, lo transfieres al servidor.
 
@@ -263,9 +263,9 @@ Busca la información necesaria para hacer esta redirección automática ajustan
 
 Para finalmente, terminarlo:
 
-![Foto 24](../docs/assets/images/Practica%202.1/s24.png)
+![Foto 24](../docs/assets/images/practica%202.1/s24.png)
 
-![Foto 25](../docs/assets/images/Practica%202.1/s25.png)
+![Foto 25](../docs/assets/images/practica%202.1/s25.png)
 
 ## Cuestiones finales
 
